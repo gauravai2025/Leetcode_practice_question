@@ -1,30 +1,20 @@
 class Solution {
 
-int solve(vector<int>&dp,int n){
-
-   if(n==0)
-   return 0;
-     
-  dp[1]=1;
-
-  for(int i=2;i<=n;i++){
-    dp[i]=dp[i-1]+dp[i-2];
-  }
-
-   if(dp[n]!=-1)
-   return dp[n];
-
-
-  return dp[n];
-
-    }
-
 public:
-    int fib(int n) {
+int fib(int n){
 
-vector<int>dp(n+1,0);
-  
-return solve(dp,n);
-       
+if(n<=1)
+return n;
+
+int a=0,b=1;
+
+for(int i=2;i<=n;i++){
+
+    int temp=b;
+    b=a+b;
+    a=temp;
+}
+
+return b; 
     }
 };
